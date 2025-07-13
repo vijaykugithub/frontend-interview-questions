@@ -49,8 +49,13 @@ export default function Pagination() {
                     <ProductCard key={product.id} product={product} />
                 ))}
             </div>
-            <div className="flex items-center justify-between w-full mt-4">
-                <button type="button" disabled={currentPage === 0} className="text-sm text-gray-600 px-2 py-1" onClick={Pre}>
+            <div className="flex items-center justify-center w-full mt-4 gap-2">
+                <button
+                    type="button"
+                    disabled={currentPage === 0}
+                    className="px-3 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none"
+                    onClick={Pre}
+                >
                     Previous
                 </button>
                 <div className="flex gap-1">
@@ -58,7 +63,7 @@ export default function Pagination() {
                         <button
                             type="button"
                             key={page}
-                            className={`px-4 py-2 rounded hover:bg-blue-600 focus:outline-none ${currentPage === page ? 'bg-blue-700 text-white font-bold' : 'bg-blue-500 text-white'}`}
+                            className={`px-3 py-2 rounded focus:outline-none transition-colors duration-150 ${currentPage === page ? 'bg-blue-700 text-white font-bold' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
                             onClick={() => handleCurrentPage(page)}
                             aria-current={currentPage === page ? 'page' : undefined}
                         >
@@ -66,7 +71,12 @@ export default function Pagination() {
                         </button>
                     ))}
                 </div>
-                <button type="button" disabled={currentPage === totalPages - 1} className="text-sm text-gray-600 px-2 py-1" onClick={Next}>
+                <button
+                    type="button"
+                    disabled={currentPage === totalPages - 1}
+                    className="px-3 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none"
+                    onClick={Next}
+                >
                     Next
                 </button>
             </div>
